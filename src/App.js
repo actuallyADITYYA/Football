@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AddData from './AddData';
+import UpdateData from './UpdateData';
+import DeleteData from './DeleteData';
+import DisplayData from './DisplayData';
+import NavBar from './NavBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => (
+  <Router>
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<h1>Football Data Management</h1>} />
+      <Route path="/add" element={<AddData />} />
+      <Route path="/update" element={<UpdateData />} />
+      <Route path="/delete" element={<DeleteData />} />
+      <Route path="/display" element={<DisplayData />} />
+      
+    </Routes>
+  </Router>
+);
 
 export default App;
