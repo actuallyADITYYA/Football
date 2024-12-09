@@ -11,7 +11,7 @@ const AddData = () => {
     goalsFor: 0,
     goalsAgainst: 0,
     points: 0,
-    year: 23,
+    year: 23, //kdbclwancka
   });
 
   const handleChange = (e) => {
