@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const UpdateData = () => {
-  const [teamName, setTeamName] = useState('');
   const [updateData, setUpdateData] = useState({
+    team: "",
     gamesPlayed: 0,
     win: 0,
     draw: 0,
@@ -11,31 +11,50 @@ const UpdateData = () => {
     goalsFor: 0,
     goalsAgainst: 0,
     points: 0,
-    year: '',
+    year: 23,
   });
 
   const handleChange = (e) => {
-    setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setUpdateData({
+      ...updateData,
+      [name]: name === "team" ? value : parseInt(value),
+    });
   };
 
-  const handleSubmit = async (e) => {
+  const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:4000/api/football/update/${teamName}`, updateData);
-      console.log('Update response:', response.data);
-      alert('Data updated successfully!');
+      const { team, ...data } = updateData;
+
+      if (!team) {
+        alert("Team name is required to update data!");
+        return;
+      }
+
+      const response = await axios.put(
+        `http://localhost:4000/api/football/update/${team}`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response from server:", response.data);
+      alert("Data updated successfully!");
     } catch (error) {
-      console.error('Error updating data:', error);
-      alert('Failed to update data.');
+      console.error("Error updating data:", error);
+      alert("Failed to update data.");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleUpdate}>
       <input
         type="text"
         name="team"
-        placeholder="Team Name"
+        placeholder="Team Name (to update)"
         onChange={handleChange}
         required
       />
@@ -88,13 +107,14 @@ const UpdateData = () => {
         onChange={handleChange}
         required
       />
-        <input
+      <input
         type="number"
         name="year"
         placeholder="Year"
         onChange={handleChange}
         required
       />
+
       <button type="submit">Update Data</button>
     </form>
   );

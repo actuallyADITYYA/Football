@@ -14,7 +14,9 @@ const Navbar = () => {
         <li><Link to="/update">Update Data</Link></li>
         <li><Link to="/delete">Delete Data</Link></li>
         <li><Link to="/display">Display Data</Link></li>
-
+        <li><Link to="/summary">Summary</Link></li>
+        <li><Link to="/wins">Top Teams</Link></li>
+        <li><Link to="/average-goals">Average Goals</Link></li>
       </ul>
     </nav>
   );

@@ -1,0 +1,75 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const AverageGoalsData = () => {
+  const [year, setYear] = useState('');
+  const [records, setRecords] = useState([]);
+
+  const handleChange = (e) => {
+    setYear(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.get(`http://localhost:4000/api/football/averageGoals/${year}`);
+      setRecords(response.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      alert('Failed to fetch data. Please try again.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Average Goals Query</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="number"
+          name="year"
+          placeholder="Enter Year"
+          value={year}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit">Fetch Teams</button>
+      </form>
+      {records.length > 0 && (
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>Games Played</th>
+              <th>Win</th>
+              <th>Draw</th>
+              <th>Loss</th>
+              <th>Goals For</th>
+              <th>Goals Against</th>
+              <th>Points</th>
+              <th>Year</th>
+              <th>avgGoals</th>
+            </tr>
+          </thead>
+          <tbody>
+            {records.map((record, index) => (
+              <tr key={index}>
+                <td>{record.team}</td>
+                <td>{record.gamesPlayed}</td>
+                <td>{record.win}</td>
+                <td>{record.draw}</td>
+                <td>{record.loss}</td>
+                <td>{record.goalsFor}</td>
+                <td>{record.goalsAgainst}</td>
+                <td>{record.points}</td>
+                <td>{record.year}</td>
+                <td>{record.avgGoals}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
+};
+
+export default AverageGoalsData;
