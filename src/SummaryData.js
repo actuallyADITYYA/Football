@@ -21,8 +21,8 @@ const SummaryData = () => {
   };
 
   return (
-    <div className="summary-container">
-  <h2>Summary Data</h2>
+    <div>
+  <h2 style={{ textAlign: 'center'}}>Yearly Summary for All Teams</h2>
   <form onSubmit={handleSubmit}>
     <input
       type="number"
@@ -36,10 +36,10 @@ const SummaryData = () => {
   </form>
   {summary && (
     <div>
-      <h3>Summary for {year}</h3>
-      <p>Total Games Played: {summary.totalGamesPlayed}</p>
-      <p>Total Wins: {summary.totalWins}</p>
-      <p>Total Draws: {summary.totalDraws}</p>
+      <h3 style={{ textAlign: 'center'}}>Summary for {year}</h3>
+      <p style={{ textAlign: 'center'}}>Total Games Played: {summary.totalGamesPlayed}</p>
+      <p style={{ textAlign: 'center'}}>Total Wins: {summary.totalWins}</p>
+      <p style={{ textAlign: 'center'}}>Total Draws: {summary.totalDraws}</p>
     </div>
   )}
 </div>

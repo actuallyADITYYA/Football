@@ -50,6 +50,8 @@ const UpdateData = () => {
   };
 
   return (
+    <div>
+    <h2 style={{textAlign: 'center'}}>Update Team Data</h2>
     <form onSubmit={handleUpdate}>
       <input
         type="text"
@@ -117,6 +119,7 @@ const UpdateData = () => {
 
       <button type="submit">Update Data</button>
     </form>
+  </div>
   );
 };
 

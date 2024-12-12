@@ -13,7 +13,6 @@ const App = () => (
   <Router>
     <NavBar />
     <Routes>
-      <Route path="/" element={<h1>Football Data Management</h1>} />
       <Route path="/add" element={<AddData />} />
       <Route path="/update" element={<UpdateData />} />
       <Route path="/delete" element={<DeleteData />} />

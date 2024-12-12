@@ -45,6 +45,8 @@ const AddData = () => {
   
 
   return (
+    <div>
+    <h2 style={{textAlign: 'center'}}>Add Team Data</h2>
     <form onSubmit={handleSubmit}>
       <input
         type="text"
@@ -112,6 +114,7 @@ const AddData = () => {
 
       <button type="submit">Add Data</button>
     </form>
+    </div>
   );
 };
 

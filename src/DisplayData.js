@@ -18,6 +18,8 @@ const DisplayData = () => {
   }, []);
 
   return (
+    <div>
+    <h2 style={{textAlign: 'center'}}>Team Data</h2>
     <table border="1">
       <thead>
         <tr>
@@ -48,6 +50,7 @@ const DisplayData = () => {
         ))}
       </tbody>
     </table>
+    </div>
   );
 };
 

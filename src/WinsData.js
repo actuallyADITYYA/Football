@@ -22,7 +22,7 @@ const WinsData = () => {
 
   return (
     <div>
-      <h2>Top Teams by the Number of Wins</h2>
+      <h2 style={{textAlign: 'center'}}>Top 10 Teams by the Number of Wins</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"

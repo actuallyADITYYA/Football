@@ -16,6 +16,7 @@ const DeleteData = () => {
 
   return (
     <div>
+      <h2 style={{textAlign: 'center'}}>Delete Team Data</h2>
         <form onSubmit={handleDelete}>
         <input
             type="text"

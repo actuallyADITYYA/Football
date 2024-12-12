@@ -1,47 +1,3 @@
-/* General App Styles */
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-h1 {
-  margin: 10% 40%;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /* Navbar Styles */
 .navbar {
   background-color: #333;
@@ -79,13 +35,10 @@ h1 {
 }
 
 .navbar-links a:hover {
-  background-color: #555;
-  border-radius: 5px;
-}
-
-.navbar-links a.active {
   background-color: #4CAF50;
   border-radius: 5px;
+  color: black;
+  transition: 0.4s;
 }
 
 /* Form Styles */
@@ -116,20 +69,10 @@ button:hover {
 }
 
 /* Summary Data Styles */
-.summary-container {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  background-color: #6b6a6a;
-  color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
 .summary-container h2 {
   margin-bottom: 20px;
   font-size: 24px;
-  color: #4CAF50;
+  color: #020202;
   padding: 0 34%
 }
 
@@ -147,7 +90,7 @@ button:hover {
 
 /* Table Styles */
 table {
-  width: 80%;
+  width: 90%;
   border-collapse: collapse;
   margin: 2% auto;
   background-color: #333;
@@ -202,3 +145,5 @@ table tr:nth-child(even) {
     width: 100%;
   }
 }
+
+
